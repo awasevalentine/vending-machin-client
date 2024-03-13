@@ -42,8 +42,10 @@ const CheckoutBtn = () =>{
     useEffect(()=>{
         if(isSuccess && data?.responseCode === '200'){
             toast.success(data?.responseDescription)
-            dispatch(clearCart(''))
-            router('/')
+            setTimeout(()=>{
+                dispatch(clearCart(''))
+                router('/')
+            },2000)
         }
         if(data?.responseCode !=="200"){
             toast.error(data?.data)

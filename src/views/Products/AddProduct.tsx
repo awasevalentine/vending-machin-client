@@ -78,7 +78,6 @@ const AddProduct = ({ setIsOpen, setTab, tab, setSelectedTab, editData, setEditD
         }));
         setIsOpen(false);
         setTab(updatedTabContent);
-        setSelectedTab({isActive: true, name: 'My Products'})
     },[tab]);
 
   useEffect(() => {
@@ -88,7 +87,7 @@ const AddProduct = ({ setIsOpen, setTab, tab, setSelectedTab, editData, setEditD
     }
     if (updateProdIsSuccess && updateProdData?.responseCode === '200') {
         setEditData(null)
-        handleTabChange()
+        setIsOpen(false);
       toast(updateProdData?.responseDescription);
     }
     if (addProdIsErr) {
